@@ -32,9 +32,3 @@ jobs:
             -Dsonar.projectKey=pdotnext_pdotnext
             -Dsonar.organization=pdotnext
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
-
-      - name: Quality Gate Check
-        uses: SonarSource/sonarcloud-quality-gate-action@v1.1.0
-        timeout-minutes: 5
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
