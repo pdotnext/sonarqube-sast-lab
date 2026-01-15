@@ -32,3 +32,4 @@ jobs:
             -Dsonar.projectKey=pdotnext_sonarqube-sast-lab
             -Dsonar.organization=pdotnext
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
+            -Dsonar.qualitygate.wait=true

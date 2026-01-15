@@ -10,8 +10,8 @@ public class VulnerableApp {
         String userInput = args[0];
 
         // ❌ SQL Injection vulnerability
-        Connection conn = DriverManager.getConnection("jdbc:h2:mem:test");
-        Statement stmt = conn.createStatement();
+        Connection conntest = DriverManager.getConnection("jdbc:h2:mem:test");
+        Statement stmt = conntest.createStatement();
         stmt.execute("SELECT * FROM users WHERE name = '" + userInput + "'");
     }
 }
