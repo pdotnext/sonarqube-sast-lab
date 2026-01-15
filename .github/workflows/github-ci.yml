@@ -29,8 +29,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=<ORG>_<REPO>
-            -Dsonar.organization=<ORG>
+            -Dsonar.projectKey=pdotnext_pdotnext
+            -Dsonar.organization=pdotnext
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
 
       - name: Quality Gate Check
