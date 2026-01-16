@@ -16,5 +16,6 @@ public class VulnerableApp1 {
         PreparedStatement pstmt = conntest1.prepareStatement(sql);
         pstmt.setString(1, userInput);
         pstmt.execute();
+        pstmt.close();
     }
 }
