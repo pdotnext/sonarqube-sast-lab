@@ -15,7 +15,8 @@ public class VulnerableApp1 {
 
         String userInput = args[0];
 
-        String sql = "SELECT * FROM users WHERE name = ?";
+            String sql = "SELECT Customers.name, Orders.id, Orders.price " +                   // Compliant
+                          "FROM Orders JOIN Customers ON Orders.customerId = Customers.id ";
 
         // ✅ Proper resource handling
         try (Connection conn = DriverManager.getConnection("jdbc:h2:mem:test");
