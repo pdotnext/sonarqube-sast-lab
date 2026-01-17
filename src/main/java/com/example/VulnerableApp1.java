@@ -18,7 +18,7 @@ public class VulnerableApp1 {
         // ✅ Explicit column selection (NO SELECT *)
         String sql = "SELECT id, name FROM users WHERE name = ?";
 
-        try (Connection conn = DriverManager.getConnection("jdbc:h2:mem:test");
+        try (Connection conn = DriverManager.getConnection("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1");
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, userInput);
