@@ -15,19 +15,18 @@ public class VulnerableApp1 {
 
         String userInput = args[0];
 
-        String sql = "SELECT * FROM users WHERE name = ?";
+        // ✅ Explicit column selection (NO SELECT *)
+        String sql = "SELECT id, name FROM users WHERE name = ?";
 
         try (Connection conn = DriverManager.getConnection("jdbc:h2:mem:test");
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, userInput);
 
-            // ✅ IMPORTANT CHANGE
-            ResultSet rs = pstmt.executeQuery();
-
-            while (rs.next()) {
-                // process results (even if empty)
-                rs.getString(1);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    rs.getString("name");
+                }
             }
         }
     }
